@@ -71,15 +71,15 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="bg-gray-950 py-12 text-white relative">
+    <section className="bg-gray-950 min-h-[calc(90vh)] py-12 text-white relative">
       <Image
         src={"/bg.png"}
         alt="bg-image"
         fill
         className="opacity-65 z-10 mask-image object-cover"
       />
-      <section className="wrapper flex flex-col items-center gap-8 md:gap-20 md:flex-row pt-32 relative z-20">
-        <div className="flex flex-col py-10 gap-4 w-full md:px-12">
+      <section className="wrapper flex flex-col items-center gap-8 md:gap-20 md:flex-row pt-32 relative z-20 flex-1">
+        <div className="flex flex-col py-10 gap-7 w-full md:px-12">
           <span className="flex items-center gap-2 bg-gradient-to-r from-lime-200/15 to-transparent px-2.5 py-1 rounded-full shadow-sm w-fit">
             <IoShieldCheckmark className="size-5 text-blue-400" />{" "}
             <span className="text-blue-400">Verified</span> by Stardent

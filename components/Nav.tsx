@@ -1,9 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import Link from "next/link";
 import Logo from "./Logo";
-import { Button } from "./ui/button";
 
 export const navLinks = [
   {
@@ -17,7 +14,7 @@ const Nav = () => {
     <header className="absolute z-50 top-0 w-full h-[8rem] md:h-[6rem]">
       <nav className="wrapper flex items-center h-full justify-between">
         <Logo />
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <div className="flex items-center gap-8">
             {navLinks.map((item) => (
               <Link
@@ -39,7 +36,7 @@ const Nav = () => {
               </Button>
             </Link>
           </div>
-        </div>
+        </div> */}
       </nav>
     </header>
   );
