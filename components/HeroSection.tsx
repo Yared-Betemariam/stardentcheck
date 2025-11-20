@@ -47,12 +47,12 @@ const HeroSection = () => {
         setOk(false);
       }
 
-      console.log(res);
       const data = await res.json();
-      console.log(data);
-      console.log(res);
 
-      if (data && Object.keys(data).length > 0) {
+      if (
+        data &&
+        (data.rowData as string[]).filter((item) => !!item).length > 5
+      ) {
         setOk(true);
 
         setData(data);
@@ -64,6 +64,7 @@ const HeroSection = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
       setOk(false);
+      setData(null);
     } finally {
       setIsLoading(false);
     }
