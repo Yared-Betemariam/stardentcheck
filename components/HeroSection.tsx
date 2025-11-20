@@ -165,18 +165,66 @@ const HeroSection = () => {
                 </span>
                 <div className="flex flex-col gap-6">
                   <div className="grid grid-cols-2 gap-y-4">
-                    <div className="flex flex-col">
-                      <span className="text-sm opacity-50">Batch Number</span>
-                      <span className="text-lg font-semibold">
-                        {data.rowData[0]}
-                      </span>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm opacity-50">Expiry Date</span>
-                      <span className="text-lg font-semibold">
-                        {formatDate(new Date(data.rowData[1]), "dd/MM/yyyy")}
-                      </span>
-                    </div>
+                    {[
+                      {
+                        label: "Batch Number",
+                        value: data.rowData[0],
+                      },
+                      {
+                        label: "Date of Entry",
+                        value: formatDate(
+                          new Date(data.rowData[1]),
+                          "dd/MM/yyyy"
+                        ),
+                      },
+                      {
+                        label: "Price bought",
+                        value: `${Number(data.rowData[2]).toLocaleString(
+                          "en-US",
+                          { style: "currency", currency: "USD" }
+                        )}`,
+                      },
+                      {
+                        label: "Price sold",
+                        value: `${Number(data.rowData[3]).toLocaleString(
+                          "en-US",
+                          { style: "currency", currency: "USD" }
+                        )}`,
+                      },
+                      {
+                        label: "Who sold",
+                        value: data.rowData[4],
+                      },
+                      {
+                        label: "Who bought",
+                        value: data.rowData[5],
+                      },
+                      {
+                        label: "Expiry date",
+                        value: data.rowData[6]
+                          ? formatDate(new Date(data.rowData[6]), "dd/MM/yyyy")
+                          : "N/A",
+                      },
+                      {
+                        label: "Date of Exist",
+                        value: data.rowData[7]
+                          ? formatDate(new Date(data.rowData[7]), "dd/MM/yyyy")
+                          : "N/A",
+                      },
+                    ].map((item, i) => (
+                      <div
+                        key={item.label + i.toString()}
+                        style={{
+                          opacity: item.value == "N/A" ? 0.5 : 1,
+                        }}
+                        className={"flex flex-col"}
+                      >
+                        <span className="text-sm opacity-50">{item.label}</span>
+                        <span className="text-lg font-semibold">
+                          {item.value}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </>
